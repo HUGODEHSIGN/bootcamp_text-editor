@@ -21,15 +21,17 @@ module.exports = () => {
       new HtmlWebpackPlugin({
         template: './index.html',
         title: 'JATE',
+        favicon: './favicon.ico',
       }),
       new InjectManifest({
         swSrc: './src-sw.js',
       }),
       new WebpackPwaManifest({
-        publicPath: '/',
+        publicPath: './',
         name: 'JATE',
         short_name: 'JATE',
         start_url: './',
+        fingerprints: false,
         description: 'Awesome Text Editor',
         background_color: '#ffffff',
         crossorigin: 'use-credentials',
@@ -37,6 +39,7 @@ module.exports = () => {
           {
             src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
           },
         ],
       }),
