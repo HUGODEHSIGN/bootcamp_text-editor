@@ -25,6 +25,21 @@ module.exports = () => {
       new InjectManifest({
         swSrc: './src-sw.js',
       }),
+      new WebpackPwaManifest({
+        publicPath: '/',
+        name: 'JATE',
+        short_name: 'JATE',
+        start_url: './',
+        description: 'Awesome Text Editor',
+        background_color: '#ffffff',
+        crossorigin: 'use-credentials',
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+          },
+        ],
+      }),
     ],
 
     module: {
